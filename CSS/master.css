@@ -19,14 +19,14 @@ html, body {
 
 .carousel-caption h1 {
   text-transform: uppercase;
-  text-shadow: 1px 1px 15px #000;
+  text-shadow: 1px 1px 20px #000;
   font-size: 500%;
 }
 
 .carousel-caption h3 {
   padding-bottom: 1rem;
   text-shadow: 1px 1px 10px #000;
-  font-size: 200%;
+  font-size: 150%;
   font-weight: 500%;
 }
 
@@ -44,16 +44,89 @@ figure {
   margin: 0 !important;
 }
 
-/* .fixed-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  clip: rect(0, auto, 0);
-  width: 100%;
-  height: 100%;
-} */
-
 /* Media Queries */
+@media (min-width:3840px) {
+  .carousel-caption {
+    top: 53%;
+  }
+
+  .carousel-caption h1 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px #000;
+    font-size: 2000%;
+  }
+
+  .carousel-caption h3 {
+    padding-bottom: 1rem;
+    text-shadow: 1px 1px 10px #000;
+    font-size: 500%;
+    font-weight: 500%;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    height: auto;
+  }
+
+  ol.carousel-indicators li,
+  ol.carousel-indicators li.active {
+    width: 7%;
+    height: 20px;
+  }
+}
+
+@media (max-width:3839px) {
+  .carousel-caption {
+    top: 55%;
+  }
+
+  .carousel-caption h1 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px #000;
+    font-size: 1200%;
+  }
+
+  .carousel-caption h3 {
+    padding-bottom: 1rem;
+    text-shadow: 1px 1px 10px #000;
+    font-size: 250%;
+    font-weight: 700%;
+  }
+
+  ol.carousel-indicators li,
+  ol.carousel-indicators li.active {
+    width: 4%;
+    height: 10px;
+  }
+}
+
+@media (max-width:1920px) {
+  .carousel-caption h1 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 20px #000;
+    font-size: 500%;
+  }
+
+  .carousel-caption h3 {
+    padding-bottom: 1rem;
+    text-shadow: 1px 1px 10px #000;
+    font-size: 150%;
+    font-weight: 500%;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  ol.carousel-indicators li,
+  ol.carousel-indicators li.active {
+    width: 5%;
+    height: 5px;
+  }
+}
+
 @media (max-width: 992px) {}
 
 @media (max-width: 768px) {
@@ -74,7 +147,23 @@ figure {
   }
 }
 
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+  .carousel-indicators {
+    display: none;
+  }
+
+  .carousel-caption h1 {
+    font-size: 250%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 110%;
+  }
+
+  .carousel-caption {
+    top: 40%;
+  }
+}
 
 .carousel-item {
   transition: -webkit-transform 0.5s ease;
