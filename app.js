@@ -3,17 +3,14 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/"
 };
 
-var cities = ["London", "New York", "Rome"];
-
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
-let nowLondon = new DateLondon();
-let DateLondon = document('.location .dateLondon');
-dateLondon.innerText = dateBuilder(nowLondon);
 
 
-
+getLondonResults();
+getNewYorkResults();
+getTokyoResults();
 
 function setQuery(evt) {
   if (evt.keyCode == 13) {
@@ -28,18 +25,73 @@ function getResults(query) {
     }).then(displayResults);
 }
 
-function getLondonResult() {
-  fetch(`${api.base}weather?q=${cities[0]}&units=metric&APPID=${api.key}`)
-    .then(weather => {
-      return weather.json();
-    }).then(displayLondon)
+function getLondonResults() {
+  fetch(`${api.base}weather?q=London&units=metric&APPID=${api.key}`)
+    .then(resultsLondon => {
+      return resultsLondon.json();
+    }).then(displayLondon);
 }
 
+function getNewYorkResults() {
+  fetch(`${api.base}weather?q=new%20york&units=metric&APPID=${api.key}`)
+    .then(resultsNewYork => {
+      return resultsNewYork.json();
+    }).then(displayNewYork);
+}
 
+function getTokyoResults() {
+  fetch(`${api.base}weather?q=Tokyo&units=metric&APPID=${api.key}`)
+    .then(resultsTokyo => {
+      return resultsTokyo.json();
+    }).then(displayTokyo);
+}
 
+function displayTokyo(resultsTokyo) {
+  let now = new Date();
+  let date = document.querySelector('.locationTokyo .tokyoDate');
+  date.innerText = dateBuilder(now);
 
+  let tempTokyo = document.querySelector('.currentTokyo .tempTokyo');
+  tempTokyo.innerHTML = `${Math.round(resultsTokyo.main.temp)}<span>°c</span>`;
 
-function displayResults (weather) {
+  let weatherTokyo = document.querySelector('.currentTokyo .weatherTokyo');
+  weatherTokyo.innerText = resultsTokyo.weather[0].main;
+
+  let hiLowTokyo = document.querySelector('.currentTokyo .hi-lowTokyo');
+  hiLowTokyo.innerText = `${Math.round(resultsTokyo.main.temp_min)}°c / ${Math.round(resultsTokyo.main.temp_max)}°c`;
+}
+
+function displayNewYork(resultsNewYork) {
+  let now = new Date();
+  let date = document.querySelector('.locationNewYork .newYorkDate');
+  date.innerText = dateBuilder(now);
+
+  let tempNewYork = document.querySelector('.currentNewYork .tempNewYork');
+  tempNewYork.innerHTML = `${Math.round(resultsNewYork.main.temp)}<span>°c</span>`;
+
+  let weatherNewYork = document.querySelector('.currentNewYork .weatherNewYork');
+  weatherNewYork.innerText = resultsNewYork.weather[0].main;
+
+  let hiLowNewYork = document.querySelector('.currentNewYork .hi-lowNewYork');
+  hiLowNewYork.innerText = `${Math.round(resultsNewYork.main.temp_min)}°c / ${Math.round(resultsNewYork.main.temp_max)}°c`;
+}
+
+function displayLondon(resultsLondon) {
+  let now = new Date();
+  let date = document.querySelector('.locationLondon .londonDate');
+  date.innerText = dateBuilder(now);
+
+  let tempLondon = document.querySelector('.currentLondon .tempLondon');
+  tempLondon.innerHTML = `${Math.round(resultsLondon.main.temp)}<span>°c</span>`;
+
+  let weatherLondon = document.querySelector('.currentLondon .weatherLondon');
+  weatherLondon.innerText = resultsLondon.weather[0].main;
+
+  let hiLowLondon = document.querySelector('.currentLondon .hi-lowLondon');
+  hiLowLondon.innerText = `${Math.round(resultsLondon.main.temp_min)}°c / ${Math.round(resultsLondon.main.temp_max)}°c`;
+}
+
+function displayResults(weather) {
   let city = document.querySelector('.location .city');
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
