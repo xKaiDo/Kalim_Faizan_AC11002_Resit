@@ -1,7 +1,27 @@
+/* The following links allow the use of improted fonts from the google api */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+/* Fonts used in the page */
+font-family: 'Bebas Neue', cursive;
+font-family: 'Bree Serif', serif;
+font-family: 'Merienda One', cursive;
+
 html, body {
   width: 100;
   height: 100%;
   color: #222;
+}
+
+/* Sets the position of the search box in the index */
+.searchbox {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
 }
 
 .navbar {
@@ -12,18 +32,27 @@ html, body {
   padding-right: 20px;
 }
 
+/* Sets the dimension of the image in the slides */
 .carousel-inner img {
   width: 100%;
   height: 100%;
 }
 
+/* Sets the live weateher image to the max width */
+.weatherImage {
+  width: 100%;
+  height: auto;
+}
+
+/* Changes the font size and applies shadow effect to the h1 in the slides */
 .carousel-caption h1 {
   text-transform: uppercase;
   text-shadow: 1px 1px 20px #000;
   font-size: 500%;
 }
 
-.carousel-caption h3 {
+/* Cahnges padding and applies shadow effect to the h3 font group in the slides */
+.fontH3 {
   padding-bottom: 1rem;
   text-shadow: 1px 1px 10px #000;
   font-size: 150%;
@@ -36,6 +65,55 @@ html, body {
   transform: translateY(-50%);
 }
 
+/* Styles the 'Check what's the weatehr like' text in the index */
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  font-family: 'Bree Serif', serif;
+}
+
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+}
+
+/* Sets the font for 'Enter your city' text */
+.cityInput {
+  font-family: 'Bebas Neue', cursive;
+}
+
+/* Chages teh size of the paragraphs */
+.app-wrap p {
+  font-size: 400%
+}
+
+/* Sets the font for the outcome of the data retrieved from teh API */
+.appFont {
+  font-family: 'Merienda One', cursive;
+}
+
+.weatherImage img {
+  width: 100%;
+  height: auto;
+}
+
+/* Sets teh background colour of the footer */
+footer {
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+
+hr.light {
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
 /* Fix Background Image */
 figure {
   position: relative;
@@ -46,6 +124,23 @@ figure {
 
 /* Media Queries */
 @media (min-width:3840px) {
+  .navbar {
+    padding: .5rem;
+  }
+
+  .fontSizeNavBar {
+    font-size: 45px;
+  }
+
+  .navBarLogo {
+    width: 20%;
+    height: auto;
+  }
+
+  .navbar {
+    padding-right: 150px;
+  }
+
   .carousel-caption {
     top: 53%;
   }
@@ -56,7 +151,7 @@ figure {
     font-size: 2000%;
   }
 
-  .carousel-caption h3 {
+  .fontH3 {
     padding-bottom: 1rem;
     text-shadow: 1px 1px 10px #000;
     font-size: 500%;
@@ -73,9 +168,59 @@ figure {
     width: 7%;
     height: 20px;
   }
+
+  .welcome h1 {
+    font-size: 850%;
+  }
+
+  /* App section */
+  .cityInput {
+    font-size: 700%;
+    text-align: relative;
+  }
+
+  .search-box {
+    position: inherit;
+    top: 6px;
+    left: -350px;
+    width: 500px;
+    height: 90px;
+    font-size: 65px;
+  }
+
+  .appFont {
+    font-size: 70px;
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 160%;
+  }
+
+  .weatherImage {
+    width: 30%;
+    height: auto;
+    position: relative;
+    left: 280px;
+  }
+
+  .footerLogo img {
+    width: 15%;
+    height: auto;
+  }
+
+  .footerFont {
+    font-size: 30px;
+  }
+
+  .footerFont h5 {
+    font-size: 45px;
+  }
 }
 
 @media (max-width:3839px) {
+  .fontSizeNavBar {
+    font-size: 30px;
+  }
+
   .carousel-caption {
     top: 55%;
   }
@@ -86,7 +231,7 @@ figure {
     font-size: 1200%;
   }
 
-  .carousel-caption h3 {
+  .fontH3 {
     padding-bottom: 1rem;
     text-shadow: 1px 1px 10px #000;
     font-size: 250%;
@@ -98,16 +243,66 @@ figure {
     width: 4%;
     height: 10px;
   }
+
+  .welcome h1 {
+    font-size: 550%;
+  }
+
+  /* App section */
+  .cityInput {
+    font-size: 500%;
+    text-align: relative;
+  }
+
+  .search-box {
+    position: inherit;
+    top: 6px;
+    left: -250px;
+    width: 400px;
+    height: 60px;
+    font-size: 45px;
+  }
+
+  .appFont {
+    font-size: 45px;
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 150%;
+  }
+
+  .weatherImage {
+    width: 30%;
+    height: auto;
+    position: relative;
+    left: 180px;
+  }
+
+  .footerLogo img {
+    width: 15%;
+    height: auto;
+  }
+
+  .footerFont {
+    font-size: 23px;
+  }
+
+  .footerFont h5 {
+    font-size: 35px;
+  }
 }
 
 @media (max-width:1920px) {
+  .fontSizeNavBar {
+    font-size: 20px;
+  }
+
   .carousel-caption h1 {
     text-transform: uppercase;
     text-shadow: 1px 1px 20px #000;
     font-size: 500%;
   }
 
-  .carousel-caption h3 {
+  .fontH3{
     padding-bottom: 1rem;
     text-shadow: 1px 1px 10px #000;
     font-size: 150%;
@@ -125,6 +320,45 @@ figure {
     width: 5%;
     height: 5px;
   }
+
+  .welcome h1 {
+    font-size: 450%;
+  }
+
+  /* App section */
+  .cityInput {
+    font-size: 350%;
+    text-align: relative;
+  }
+
+  .search-box {
+    position: relative;
+    top: 6px;
+    left: -50px;
+    right: 50px;
+    width: 300px;
+    height: 45px;
+    font-size: 35px;
+  }
+
+  .appFont {
+    font-size: 27px;
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 150%;
+  }
+
+  .weatherImage {
+    width: 50%;
+    height: auto;
+    position: relative;
+    left: 60px;
+  }
+
+  .footerLogo img {
+    width: 15%;
+    height: auto;
+  }
 }
 
 @media (max-width: 992px) {}
@@ -136,7 +370,7 @@ figure {
     font-size: 350%;
   }
 
-  .carousel-caption h3 {
+  .fontH3 {
     padding-bottom: .2rem;
     font-size: 140%;
     font-weight: 400%;
@@ -144,6 +378,41 @@ figure {
 
   .carousel-caption {
     top: 45%;
+  }
+
+  .welcome h1 {
+    font-size: 350%;
+  }
+
+  /* App section */
+  .cityInput {
+    font-size: 300%;
+  }
+
+  .search-box {
+    position: relative;
+    top: 6px;
+    left: -30px;
+    width: 250px;
+    height: 40px;
+    font-size: 25px;
+  }
+
+  .appFont {
+    font-size: 23px;
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 150%;
+  }
+
+  .weatherImage {
+    width: 70%;
+    height: auto;
+  }
+
+  .footerLogo img {
+    width: 20%;
+    height: auto;
   }
 }
 
@@ -156,12 +425,40 @@ figure {
     font-size: 250%;
   }
 
-  .carousel-caption h3 {
+  .fontH3 {
     font-size: 110%;
   }
 
   .carousel-caption {
-    top: 40%;
+    top: 45%;
+  }
+
+  .welcome h1 {
+    font-size: 250%;
+  }
+
+  /* App section */
+  .cityInput {
+    font-size: 210%;
+    text-align: center;
+  }
+
+  .search-box {
+    position: center;
+    top: -10px;
+    left: -10px;
+  }
+
+  .appFont {
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 150%;
+    font-size: 17px;
+  }
+
+  .weatherImage {
+    width: 70%;
+    height: auto;
   }
 }
 
